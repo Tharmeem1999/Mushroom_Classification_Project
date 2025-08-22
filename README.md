@@ -15,7 +15,7 @@ This project uses the Mushroom Classification dataset from Kaggle to predict whe
 
 ## Project Overview
 
-The goal of this project is to build and compare two machine learning models to classify mushrooms as **edible (e)** or **poisonous (p)** using features like cap shape, odor, and gill color. The project is designed to be beginner-friendly, using Python and scikit-learn, with visualizations to understand the data and model decisions.
+The goal of this project is to build and compare two machine learning models to classify mushrooms as **edible (e)** or **poisonous (p)** using features like cap shape, odor, and gill color. The project is created using Python and scikit-learn, with visualizations to understand the data and model decisions.
 
 ## Dataset
 
@@ -28,7 +28,7 @@ The dataset (`mushrooms.csv`) contains 8,124 mushrooms with 23 categorical featu
   - The `stalk-root` column contains missing values denoted by `?`, which are handled by replacing with `unknown`.
   - The dataset is balanced, with roughly equal numbers of edible and poisonous mushrooms.
 
-Data source: Kaggle Mushroom Classification
+Data source: [Kaggle Mushroom Classification](https://www.kaggle.com/datasets/uciml/mushroom-classification)
 
 ## Project Steps
 
@@ -45,7 +45,6 @@ Data source: Kaggle Mushroom Classification
 5. **Model Evaluation**: Evaluated both models using accuracy, confusion matrix, and classification report.
 6. **Model Interpretation**:
    - For Model A: Visualized the Decision Tree to understand key splits.
-   - For Model B: Analyzed classification metrics to confirm performance.
 
 ## Python Packages Used
 
@@ -64,7 +63,7 @@ Data source: Kaggle Mushroom Classification
   - Applied **Label Encoding** to convert categorical features to numerical values.
   - Split data into 80% training and 20% testing sets.
 - **Training**: Trained with default parameters and `random_state=42`.
-- **Evaluation**: Visualized the top 3 levels of the tree using `plot_tree`.
+- **Evaluation**: Analyzed performance using accuracy, confusion matrix, and classification report.
 - **Why Used**: Decision Trees are intuitive, handle categorical data well, and are interpretable.
 
 ### Model B: Logistic Regression (`Model_B.ipynb`)
@@ -89,13 +88,13 @@ Data source: Kaggle Mushroom Classification
 - **Logistic Regression (Model B)**:
 
   - Accuracy: 100% on the test set.
-  - Classification Report:
+  - Classification Report (Same for Model A):
 
     ```
               precision    recall  f1-score   support
     Edible       1.00      1.00      1.00       843
     Poisonous    1.00      1.00      1.00       782
-    accuracy                           1.00      1625
+    accuracy                         1.00      1625
     ```
   - The model perfectly classifies all test samples, leveraging one-hot encoded features.
 
@@ -105,11 +104,3 @@ Data source: Kaggle Mushroom Classification
 - **Model Performance**: Both models achieve 100% accuracy, indicating the dataset has clear patterns (e.g., certain odors like foul are strongly associated with poisonous mushrooms).
 - **Preprocessing Impact**: Label Encoding works well for Decision Trees, while One-Hot Encoding is necessary for Logistic Regression to avoid assuming ordinal relationships.
 - **Dataset Characteristics**: The balanced dataset and lack of significant noise contribute to perfect classification performance.
-
-## Future Improvements
-
-- **Feature Selection**: Use feature importance scores (e.g., `model.feature_importances_` for Decision Tree) to reduce model complexity by dropping less impactful features.
-- **Cross-Validation**: Implement k-fold cross-validation to ensure robust performance across different data splits.
-- **Other Models**: Experiment with Random Forest or Support Vector Machines (SVM) for comparison.
-- **Hyperparameter Tuning**: Tune Decision Tree parameters (`max_depth`, `min_samples_split`) or Logistic Regression’s regularization (`C`) for potential improvements.
-- **Missing Value Handling**: Explore imputation techniques for `stalk-root` instead of using `unknown` to assess impact on performance.
