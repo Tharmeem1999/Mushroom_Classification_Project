@@ -11,7 +11,6 @@ This project uses the Mushroom Classification dataset from Kaggle to predict whe
 - Models
 - Results
 - Key Insights
-- Future Improvements
 
 ## Project Overview
 
